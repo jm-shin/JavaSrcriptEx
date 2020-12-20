@@ -1,8 +1,17 @@
 
-var obj = {
-    name: 'foo',
-    getName() {return this.name},
-    getName2: function() { return this.name},
+const obj = {
+    [Symbol('2')]: true,
+    '02': true,
+    '10': true,
+    '01': true,
+    '2': true,
+    [Symbol('1')]: true
 }
 
-//super , sub 상위의
+const key = []
+for (const key in obj) {
+    key.push(key)
+}
+
+console.log(key)// ["2","10", "02", "01"]
+// 숫자인데 첫글자가 0이 아닌 경우 => 숫자로 인식
